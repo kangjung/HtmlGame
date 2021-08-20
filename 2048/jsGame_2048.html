@@ -51,11 +51,55 @@
 		    height: 90px;
 		    width: 90px;
 		}
+		#content{
+		
+		    width:400px;
+		    height:400px;
+		}
+				#content > div {
+			display: none;
+		}
+		#content .on{
+			display: block;
+		}
+
 		
 		#gamearea{
 		    width:400px;
 		    height:400px;
 		}
+		
+		h1 {
+		    font-size: 35px;
+		    float: left;
+		}
+    	.scorePad {
+		    float: right;
+		}
+    	.scorePad dl {
+		    border: 2px solid #f2f2f2;
+		    border-radius: 5px;
+		    display: inline-block;
+		    padding: 6px;
+		    margin: 0 1px;
+		    text-align: center;
+    	}
+    	
+    	.scorePad dl dd {
+    		font-size: 19px;
+    		padding-left: 2px;
+    	}
+    	
+    	.scorePad dl dt {
+    		padding-bottom: 5px;
+	    	font-size: 14px;
+    	}
+    	#intro{    
+    	    width: 400px;
+			height: 400px;    
+    		background: rgba(0, 0, 0, 0.5);
+			text-align: center;
+    	}
     </style>
     <script type="text/javascript">
     	window.addEventListener("keydown", e => {
@@ -74,30 +118,44 @@
     <body>
     
     	<div class="container"> 
-    		<header class="contHeader">
+    		<header class="header">
     			<h1 class="title">2048</h1>
-    			<span id="scorePad"><p id="scoreType">SCORE</p><p id="score">0</p></span>	
+    			<div class="scorePad">
+    				<dl>
+    					<dt id="scoreType">SCORE</dt>
+    					<dd id="score">0</dd>
+    				</dl>
+    				<!-- <dl>
+    					<dt>BEST SCORE</dt>
+    					<dd>0</dd>
+    				</dl> -->
+    			</div>
+    			</span>	
     		</header>
-			<button id="startBtn" onClick="start();">시작</button>
-			<div id="gamearea">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-            </div>
-            
+    		
+			<div id="content">
+	    		<div id="intro" class="on">
+					<button id="startBtn" onClick="start();">시작</button>
+				</div>
+				<div id="gamearea">
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	                <div class="cell"></div>
+	            </div>
+	        </div>
 	        <div id="btnArea">
 		        <span>
 			        <button id="ArrowUp" onClick="moveNum(this);">↑</button>

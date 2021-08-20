@@ -28,7 +28,17 @@ function init(){
 
 // 게임 시작
 function start(){
+	document.getElementById("intro").style.display = 'none';
+	document.getElementById("gamearea").style.display = 'block';
 	init();
+}
+
+function end() {
+	var score = document.getElementById("score").innerHTML;
+	alert("score : "+ score);
+	document.getElementById("intro").style.display = 'block';
+	document.getElementById("gamearea").style.display = 'none';
+	document.getElementById("score").innerHTML = "0";
 }
 // 숫자 랜덤 생성
 function randomNum(){
@@ -371,8 +381,11 @@ function check(){
                 };
                 break;
         }
+        if(numArr[0] === 0){
+        	x=true; 
+        }
 	}
     if(!x){
-    	alert("score : " +document.getElementById("score").value)
+    	end();
    	}
 }
