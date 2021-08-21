@@ -6,10 +6,10 @@ var numArr = Array(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0);
 // 상하좌우 이동
 function moveNum(obj){
     switch(obj.getAttribute("id")){
-        case "ArrowUp":up(); console.log("up"); break; //up
-        case "ArrowDown":down(); console.log("down");break; //down
-        case "ArrowLeft":left(); console.log("left"); break;//left
-        case "ArrowRight":right(); console.log("right"); break; //right
+        case "ArrowUp":up();  break; //up
+        case "ArrowDown":down(); break; //down
+        case "ArrowLeft":left(); break;//left
+        case "ArrowRight":right(); break; //right
     }
 }
 
@@ -35,7 +35,18 @@ function start(){
 
 function end() {
 	var score = document.getElementById("score").innerHTML;
+	var bestScore = document.getElementById("bestScore").innerHTML;
+	
 	alert("score : "+ score);
+	
+	if(parseInt(bestScore) < parseInt(score)){
+		localStorage.removeItem("2048_best_score");
+		localStorage.setItem("2048_best_score", score);
+		document.getElementById("bestScore").innerHTML = score;		
+	}
+	
+	
+	
 	document.getElementById("intro").style.display = 'block';
 	document.getElementById("gamearea").style.display = 'none';
 	document.getElementById("score").innerHTML = "0";
@@ -64,7 +75,6 @@ function getNewNum(){
 // div에 숫자 반영
 function setNum(){
     for(var i=0; i<16; i++){
-    	console.log(numArr[i]);
 		cellArr[i].innerHTML = numArr[i] != 0 ? numArr[i] : ""; 
 		setCellStyle(cellArr[i]);
 	}
@@ -381,8 +391,10 @@ function check(){
                 };
                 break;
         }
-        if(numArr[0] === 0){
+        
+        if(numArr[i] == 0){
         	x=true; 
+            break;
         }
 	}
     if(!x){
