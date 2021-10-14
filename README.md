@@ -5,3 +5,6 @@ Create a HTML game without Canvas.
 
 # 2048
 play : https://kangjung.github.io/game/2048/jsGame_2048.html
+
+# roulette
+play : https://kangjung.github.io/game/roulette/roulette.html
